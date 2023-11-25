@@ -66,4 +66,4 @@ jobs:
         with:
           app-name: 'fypdietapp'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_241942D3BDB24E4987E5995D85F26439 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FBAFA110538B4F8D9373348FAFB5028A }}
