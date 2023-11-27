@@ -6,8 +6,8 @@ import io
 import tensorflow as tf
 from tensorflow import keras
 from PIL import Image
-import base64
-
+from flask import (Flask, redirect, render_template, request,
+                   send_from_directory, url_for)
 from flask import Flask, request, jsonify
 
 model = keras.models.load_model("food101.h5")
@@ -106,7 +106,7 @@ def index():
           # Convert PIL Image to NumPy array
 
           label0= predicts(pillow_img)
-          data = {label0}
+          data = list(label0)
           print(data)
           return jsonify(data)
         
@@ -116,10 +116,32 @@ def index():
 
 
 
-    return "OK"
+    return render_template('index.html')
 
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
+@app.route('/hello', methods=['POST'])
+def hello():
+   name = request.form.get('name')
+
+   if name:
+       print('Request for hello page received with name=%s' % name)
+       return render_template('hello.html', name = name)
+   else:
+       print('Request for hello page received with no name or blank name -- redirecting')
+       return redirect(url_for('index'))
 
 if __name__ == "__main__":
     app.run(debug=True)
     
+
+
+
+
+ 
+
+
 
