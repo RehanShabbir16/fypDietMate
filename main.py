@@ -6,8 +6,6 @@ import io
 import tensorflow as tf
 from tensorflow import keras
 from PIL import Image
-from flask import (Flask, redirect, render_template, request,
-                   send_from_directory, url_for)
 from flask import Flask, request, jsonify
 
 model = keras.models.load_model("food101.h5")
@@ -120,7 +118,7 @@ def index():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8000)
+    app.run(host='0.0.0.0', port=8080)
     
 
 
