@@ -66,4 +66,4 @@ jobs:
         with:
           app-name: 'dietmate'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E0C396455E704561AC27F3811EEC5698 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_503349934FF446BD9852D09E4C22A2DA }}
